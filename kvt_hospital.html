@@ -1,0 +1,2792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KVT Multispeciality Hospitals - North Chennai's most trusted 24×7 emergency hospital. NABH accredited with 25+ years of service.">
+    <meta name="referrer" content="no-referrer">
+    <title>KVT Multispeciality Hospitals | Where Care Meets Trust</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.383.0/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES - DESIGN SYSTEM
+           ============================================ */
+        :root {
+            /* Brand Colors */
+            --navy: #1a2d5a;
+            --teal: #2ab5b5;
+            --teal-light: #e8f4f4;
+            --red: #e53e3e;
+            --white: #ffffff;
+            --ice: #f8fbff;
+            
+            /* Text Colors */
+            --text-primary: #1a2d5a;
+            --text-body: #4a5568;
+            --text-muted: #718096;
+            --success: #38a169;
+            --gold: #d69e2e;
+            
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            /* Spacing */
+            --section-padding: clamp(4rem, 8vw, 6rem);
+            --container-max: 1280px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(26, 45, 90, 0.1);
+            --shadow-md: 0 4px 6px rgba(26, 45, 90, 0.1);
+            --shadow-lg: 0 10px 25px rgba(26, 45, 90, 0.15);
+            --shadow-xl: 0 20px 40px rgba(26, 45, 90, 0.2);
+            --shadow-teal: 0 4px 20px rgba(42, 181, 181, 0.3);
+        }
+        
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-body);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--ice);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--teal);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--navy);
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        /* Focus visible - keyboard accessibility */
+        :focus-visible {
+            outline: 3px solid var(--teal);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        :focus:not(:focus-visible) {
+            outline: none;
+        }
+        
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background: var(--teal);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--teal);
+            color: var(--white);
+        }
+        
+        .btn-emergency {
+            background: var(--red);
+            color: var(--white);
+            animation: pulse-btn 2s infinite;
+        }
+        
+        @keyframes pulse-btn {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(229, 62, 62, 0); }
+        }
+        
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           SECTION 1: EMERGENCY TOP BANNER
+           ============================================ */
+        .emergency-banner {
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.75rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+        
+        .emergency-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--red);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        .emergency-phone {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .emergency-phone:hover {
+            text-decoration: underline;
+        }
+        
+        /* ============================================
+           SECTION 2: NAVBAR
+           ============================================ */
+        .navbar {
+            background: var(--white);
+            border-bottom: 3px solid var(--navy);
+            position: sticky;
+            top: 44px;
+            z-index: 1000;
+            transition: box-shadow var(--transition-normal);
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(26, 45, 90, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.6rem;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--teal);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: all var(--transition-normal);
+        }
+        
+        /* Mobile Nav */
+        @media (max-width: 900px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                border-bottom: 3px solid var(--navy);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height var(--transition-slow);
+            }
+            
+            .nav-links.active {
+                max-height: 400px;
+            }
+            
+            .nav-links a::after {
+                display: none;
+            }
+        }
+        
+        /* ============================================
+           SECTION 3: HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, var(--ice) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero-content .nabh-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--teal);
+            border-radius: 50px;
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--navy);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        .typing-container {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .typing-text {
+            color: var(--teal);
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: var(--teal);
+            margin-left: 4px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .trust-badges {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .trust-badge svg {
+            color: var(--teal);
+        }
+        
+        .hero-image-wrapper {
+            position: relative;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 0 60px 0 60px;
+            border-top: 4px solid var(--teal);
+            border-bottom: 4px solid var(--navy);
+        }
+        
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .floating-card.rating {
+            bottom: 30px;
+            left: -20px;
+        }
+        
+        .floating-card.status {
+            top: 30px;
+            right: -20px;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .rating-stars {
+            color: var(--gold);
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .floating-card {
+                position: static;
+                margin: 1rem 0;
+                animation: none;
+            }
+        }
+        
+        /* ============================================
+           SECTION 4: STATS STRIP
+           ============================================ */
+        .stats-section {
+            background: var(--navy);
+            padding: 3rem 0;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+        
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: var(--teal);
+        }
+        
+        .stat-value {
+            font-family: var(--font-mono);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--teal);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.5rem;
+        }
+        
+        @media (max-width: 600px) {
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+            
+            .stats-container {
+                gap: 2rem;
+            }
+        }
+        
+        /* ============================================
+           SECTION 5: DEPARTMENTS - FLIP CARDS
+           ============================================ */
+        .departments-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+        
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .flip-card {
+            background: transparent;
+            height: 220px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        /* Touch device flip support */
+        @media (hover: none) {
+            .flip-card:hover .flip-card-inner {
+                transform: none;
+            }
+            .flip-card.flipped .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+        
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .flip-card-front {
+            background: var(--white);
+            border: 1px solid var(--teal-light);
+            border-top: 4px solid var(--teal);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .flip-card-front:hover {
+            box-shadow: var(--shadow-teal);
+        }
+        
+        .department-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--teal-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .department-icon svg {
+            color: var(--teal);
+            width: 28px;
+            height: 28px;
+        }
+        
+        .department-name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+        
+        .flip-card-back {
+            background: var(--navy);
+            color: var(--white);
+            transform: rotateY(180deg);
+            border: 4px solid var(--teal);
+        }
+        
+        .flip-card-back p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .learn-more {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        @media (max-width: 1100px) {
+            .departments-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .departments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           SECTION 6: DOCTORS
+           ============================================ */
+        .doctors-section {
+            padding: var(--section-padding) 0;
+            background: var(--ice);
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .doctor-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-teal);
+        }
+        
+        .doctor-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--teal);
+            margin-bottom: 1.25rem;
+        }
+        
+        .doctor-name {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .doctor-speciality {
+            color: var(--teal);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .doctor-qualification {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .doctor-bio {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        
+        .doctor-cta {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap var(--transition-fast);
+        }
+        
+        .doctor-cta:hover {
+            gap: 0.75rem;
+        }
+        
+        @media (max-width: 1000px) {
+            .doctors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           SECTION 7: SERVICES - TABBED
+           ============================================ */
+        .services-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+        
+        .tabs-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .tabs-header {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-btn {
+            padding: 0.875rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--navy);
+            border-radius: 50px;
+            color: var(--navy);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .tab-btn:hover {
+            background: var(--teal-light);
+        }
+        
+        .tab-btn.active {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .tab-panel.reverse {
+            direction: rtl;
+        }
+        
+        .tab-panel.reverse > * {
+            direction: ltr;
+        }
+        
+        .services-list {
+            list-style: none;
+        }
+        
+        .services-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--teal-light);
+        }
+        
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .services-list svg {
+            color: var(--teal);
+            flex-shrink: 0;
+        }
+        
+        .services-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .diagnostics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .diagnostic-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--ice);
+            border-radius: 16px;
+        }
+        
+        .diagnostic-item svg {
+            color: var(--teal);
+            width: 40px;
+            height: 40px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .diagnostic-item span {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .opd-schedule {
+            background: var(--ice);
+            padding: 2rem;
+            border-radius: 16px;
+        }
+        
+        .schedule-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--teal-light);
+        }
+        
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+        
+        .schedule-day {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .schedule-time {
+            color: var(--teal);
+            font-family: var(--font-mono);
+        }
+        
+        @media (max-width: 768px) {
+            .tab-panel,
+            .tab-panel.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            
+            .diagnostics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* ============================================
+           SECTION 8: TESTIMONIALS SLIDER
+           ============================================ */
+        .testimonials-section {
+            padding: var(--section-padding) 0;
+            background: var(--ice);
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            padding: 2rem;
+        }
+        
+        .testimonial-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--teal);
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .quote-mark {
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: var(--teal);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-body);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .testimonial-location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--teal-light);
+            border: 2px solid var(--teal);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .slider-dot.active {
+            background: var(--teal);
+        }
+        
+        /* ============================================
+           SECTION 9: WHY CHOOSE KVT
+           ============================================ */
+        .why-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+        
+        .why-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            align-items: center;
+        }
+        
+        .why-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .why-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            font-weight: 500;
+            color: var(--navy);
+        }
+        
+        .feature-list svg {
+            color: var(--teal);
+            flex-shrink: 0;
+        }
+        
+        .progress-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .progress-item {
+            width: 100%;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .progress-value {
+            font-family: var(--font-mono);
+            color: var(--teal);
+            font-weight: 700;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: var(--teal-light);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--teal);
+            border-radius: 6px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: width;
+        }
+        
+        @media (max-width: 768px) {
+            .why-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        /* ============================================
+           SECTION 10: INSURANCE & ACCREDITATION
+           ============================================ */
+        .insurance-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+        
+        .accreditation-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .accredit-badge {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .accredit-badge.nabh {
+            background: var(--navy);
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+        
+        .accredit-badge.years {
+            background: var(--teal);
+            color: var(--white);
+        }
+        
+        .accredit-badge.emergency {
+            background: var(--red);
+            color: var(--white);
+        }
+        
+        .insurance-marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .insurance-track {
+            display: inline-flex;
+            gap: 1.5rem;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* On desktop, stop marquee and wrap naturally */
+        @media (min-width: 769px) {
+            .insurance-marquee {
+                overflow: visible;
+                white-space: normal;
+            }
+            .insurance-track {
+                animation: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+        
+        .insurance-pill {
+            padding: 0.75rem 1.5rem;
+            background: var(--ice);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--navy);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 600px) {
+            .insurance-marquee {
+                display: block;
+            }
+        }
+        
+        /* ============================================
+           SECTION 11: CONTACT & APPOINTMENT
+           ============================================ */
+        .contact-section {
+            padding: var(--section-padding) 0;
+            background: var(--ice);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-item svg {
+            color: var(--teal);
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        
+        .info-item a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .info-item a:hover {
+            color: var(--teal);
+        }
+        
+        .hours-table {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .hours-table tr td {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--teal-light);
+        }
+        
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+        
+        .appointment-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .appointment-form h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.9rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--teal-light);
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px var(--teal-light);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Date input - calendar icon visible on all browsers */
+        input[type="date"] {
+            color-scheme: light;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(20%) sepia(80%) saturate(800%) hue-rotate(185deg);
+            opacity: 0.8;
+        }
+        
+        /* Select - force light theme on mobile */
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a2d5a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+            background-color: #ffffff;
+            color: var(--text-primary);
+        }
+        .form-group select option {
+            background-color: #ffffff;
+            color: var(--text-primary);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .submit-btn:hover {
+            background: var(--teal);
+            transform: translateY(-2px);
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: var(--success);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            z-index: 1002;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           SECTION 12: FOOTER
+           ============================================ */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 3rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-tagline {
+            color: var(--teal);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all var(--transition-normal);
+        }
+        
+        .social-links a:hover {
+            background: var(--teal);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--teal);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--red);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: var(--container-max);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* ============================================
+           FLOATING BUTTONS
+           ============================================ */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 999;
+            pointer-events: none;
+        }
+        
+        .floating-btn {
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, background var(--transition-normal), box-shadow var(--transition-normal);
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-lg);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .floating-btn.call {
+            background: var(--red);
+            color: var(--white);
+        }
+        
+        .floating-btn.call:hover {
+            background: #c53030;
+        }
+        
+        .floating-btn.appointment {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        .floating-btn.appointment:hover {
+            background: var(--teal);
+        }
+        
+        @media (max-width: 600px) {
+            .floating-buttons {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-end;
+                right: 20px;
+                left: auto;
+                bottom: 12px;
+            }
+            
+            .floating-btn {
+                font-size: 0.8rem;
+                padding: 0.7rem 1rem;
+            }
+            
+            .floating-btn.call {
+                order: 1;
+            }
+            
+            .floating-btn.appointment {
+                order: 2;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .floating-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SECTION 1: EMERGENCY TOP BANNER -->
+    <div class="emergency-banner">
+        <div class="emergency-content">
+            <span><span class="pulse-dot"></span> 24×7 EMERGENCY AVAILABLE</span>
+            <span>|</span>
+            <a href="tel:+914442834516" class="emergency-phone">📞 +91 44 42834516</a>
+            <span>|</span>
+            <a href="tel:108" class="btn btn-emergency">🚑 CALL AMBULANCE</a>
+        </div>
+    </div>
+
+    <!-- SECTION 2: NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">✚</div>
+                <div class="logo-text">
+                    <span class="logo-name">KVT</span>
+                    <span class="logo-subtitle">Multispeciality Hospitals</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#departments">Departments</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary">Book Appointment</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- SECTION 3: HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="nabh-badge">
+                    <i data-lucide="check-circle"></i> NABH ACCREDITED
+                </div>
+                <h1 class="hero-title">
+                    North Chennai's Most<br>
+                    <span class="typing-container">
+                        <span class="typing-text" id="typingText"></span><span class="typing-cursor"></span>
+                    </span>
+                </h1>
+                <p class="hero-description">
+                    Serving Moolakadai, Kodungaiyur, Madhavaram and all of North Chennai for over 25 years with compassionate, affordable, world-class care.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        Book Appointment <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#departments" class="btn btn-secondary">View Departments</a>
+                </div>
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i data-lucide="hospital"></i> NABH Accredited
+                    </div>
+                    <div class="trust-badge">
+                        <i data-lucide="clock"></i> 24×7 Emergency
+                    </div>
+                    <div class="trust-badge">
+                        <i data-lucide="ambulance"></i> Ambulance Available
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=1920&q=80" alt="KVT Hospital Building" class="hero-image">
+                <div class="floating-card rating">
+                    <span class="rating-stars">★★★★★</span>
+                    <span>4.5 Google Rating · 65+ Reviews</span>
+                </div>
+                <div class="floating-card status">
+                    <span class="status-dot"></span>
+                    <span>Emergency Open Now</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: STATS STRIP -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-value" data-target="25">0</span>
+                <span class="stat-label">Years of Service</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" data-target="14">0</span>
+                <span class="stat-label">Speciality Departments</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" data-target="10">0</span>
+                <span class="stat-label">Expert Doctors</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" data-target="24">0</span>
+                <span class="stat-label">×7 Emergency Care</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" data-target="10000">0</span>
+                <span class="stat-label">Patients Treated</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: DEPARTMENTS -->
+    <section class="departments-section" id="departments">
+        <h2 class="section-title reveal">Our Specialities</h2>
+        <p class="section-subtitle reveal">Comprehensive healthcare across 14 specialised departments</p>
+        <div class="departments-grid">
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="stethoscope"></i></div>
+                        <h3 class="department-name">General Medicine</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Comprehensive diagnosis and treatment of adult illnesses</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="heart-pulse"></i></div>
+                        <h3 class="department-name">Cardiology</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Expert cardiac care, ECG, and heart condition management</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="bone"></i></div>
+                        <h3 class="department-name">Orthopaedics</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Joint replacement, fractures, and musculoskeletal care</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="droplets"></i></div>
+                        <h3 class="department-name">Nephrology</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Kidney disease management and dialysis support</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="shield-plus"></i></div>
+                        <h3 class="department-name">Urology</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Urological disorders and minimally invasive procedures</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="ear"></i></div>
+                        <h3 class="department-name">ENT</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Ear, nose, and throat disorders and surgeries</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="baby"></i></div>
+                        <h3 class="department-name">Gynecology</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Women's health, maternity care, and prenatal support</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="sparkles"></i></div>
+                        <h3 class="department-name">Dermatology</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Skin conditions, cosmetic dermatology, and treatments</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="scissors"></i></div>
+                        <h3 class="department-name">General Surgery</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Laparoscopic and open surgical procedures</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="activity"></i></div>
+                        <h3 class="department-name">Diabetology</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Diabetes management, HbA1c monitoring, diet counselling</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="pill"></i></div>
+                        <h3 class="department-name">Gastroenterology</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Digestive system disorders, endoscopy, and liver care</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="zap"></i></div>
+                        <h3 class="department-name">Emergency Medicine</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>24×7 trauma care, triage, and critical stabilisation</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="monitor"></i></div>
+                        <h3 class="department-name">ICU & Critical Care</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Advanced ICU with continuous patient monitoring</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card reveal">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="department-icon"><i data-lucide="smile"></i></div>
+                        <h3 class="department-name">Pediatrics</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Child healthcare from newborn to adolescent</p>
+                        <a href="#contact" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: DOCTORS -->
+    <section class="doctors-section" id="doctors">
+        <h2 class="section-title reveal">Meet Our Specialists</h2>
+        <p class="section-subtitle reveal">Expert doctors dedicated to your health and wellbeing</p>
+        <div class="doctors-grid">
+            <div class="doctor-card reveal">
+                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80" alt="Dr. Alka" class="doctor-image">
+                <h3 class="doctor-name">Dr. Alka</h3>
+                <p class="doctor-speciality">Gynecologist & Obstetrician</p>
+                <span class="doctor-qualification">MBBS, MS (OBG)</span>
+                <p class="doctor-bio">Expert maternity and women's health care</p>
+                <a href="#contact" class="doctor-cta">Book Appointment <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="doctor-card reveal">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt="Dr. S. Thirumavalavan" class="doctor-image">
+                <h3 class="doctor-name">Dr. S. Thirumavalavan</h3>
+                <p class="doctor-speciality">Nephrologist</p>
+                <span class="doctor-qualification">MBBS, MD, DM (Nephrology)</span>
+                <p class="doctor-bio">Kidney disease and dialysis specialist</p>
+                <a href="#contact" class="doctor-cta">Book Appointment <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="doctor-card reveal">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" alt="Dr. Chandrasekaran K.V" class="doctor-image">
+                <h3 class="doctor-name">Dr. Chandrasekaran K.V</h3>
+                <p class="doctor-speciality">Orthopaedic Surgeon</p>
+                <span class="doctor-qualification">MBBS, MS (Ortho)</span>
+                <p class="doctor-bio">Joint replacement and fracture management</p>
+                <a href="#contact" class="doctor-cta">Book Appointment <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="doctor-card reveal">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Dr. Deepak Raj" class="doctor-image">
+                <h3 class="doctor-name">Dr. Deepak Raj</h3>
+                <p class="doctor-speciality">ENT Specialist</p>
+                <span class="doctor-qualification">MBBS, MS (ENT)</span>
+                <p class="doctor-bio">Ear, nose, and throat surgical expertise</p>
+                <a href="#contact" class="doctor-cta">Book Appointment <i data-lucide="arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: SERVICES -->
+    <section class="services-section" id="services">
+        <h2 class="section-title reveal">Comprehensive Healthcare Services</h2>
+        <p class="section-subtitle reveal">World-class medical services under one roof</p>
+        <div class="tabs-container reveal">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="emergency">Emergency & ICU</button>
+                <button class="tab-btn" data-tab="diagnostics">Diagnostics</button>
+                <button class="tab-btn" data-tab="surgical">Surgical Care</button>
+                <button class="tab-btn" data-tab="opd">Outpatient (OPD)</button>
+            </div>
+            
+            <div class="tab-content active" id="emergency">
+                <div class="tab-panel">
+                    <div>
+                        <ul class="services-list">
+                            <li><i data-lucide="zap"></i> 24×7 Trauma Care</li>
+                            <li><i data-lucide="heart-pulse"></i> Advanced ICU Facilities</li>
+                            <li><i data-lucide="ambulance"></i> Emergency Ambulance Service</li>
+                            <li><i data-lucide="scissors"></i> Emergency Surgery</li>
+                            <li><i data-lucide="monitor"></i> Critical Care Monitoring</li>
+                            <li><i data-lucide="droplet"></i> Blood Bank Support</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80" alt="ICU Care" class="services-image">
+                </div>
+            </div>
+            
+            <div class="tab-content" id="diagnostics">
+                <div class="diagnostics-grid">
+                    <div class="diagnostic-item">
+                        <i data-lucide="scan"></i>
+                        <span>X-Ray</span>
+                    </div>
+                    <div class="diagnostic-item">
+                        <i data-lucide="heart-pulse"></i>
+                        <span>ECG</span>
+                    </div>
+                    <div class="diagnostic-item">
+                        <i data-lucide="test-tube"></i>
+                        <span>Blood Tests</span>
+                    </div>
+                    <div class="diagnostic-item">
+                        <i data-lucide="flask-conical"></i>
+                        <span>Urine Analysis</span>
+                    </div>
+                    <div class="diagnostic-item">
+                        <i data-lucide="scan-line"></i>
+                        <span>Ultrasound</span>
+                    </div>
+                    <div class="diagnostic-item">
+                        <i data-lucide="microscope"></i>
+                        <span>Pathology Lab</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="surgical">
+                <div class="tab-panel reverse">
+                    <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&q=80" alt="Surgery" class="services-image">
+                    <div>
+                        <ul class="services-list">
+                            <li><i data-lucide="scissors"></i> Laparoscopic Surgery</li>
+                            <li><i data-lucide="bone"></i> Orthopaedic Surgery</li>
+                            <li><i data-lucide="ear"></i> ENT Surgery</li>
+                            <li><i data-lucide="baby"></i> Gynaecological Surgery</li>
+                            <li><i data-lucide="activity"></i> General Surgery</li>
+                            <li><i data-lucide="circle-help"></i> Minor OT Procedures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="opd">
+                <div class="opd-schedule">
+                    <div class="schedule-row">
+                        <span class="schedule-day">Monday - Saturday</span>
+                        <span class="schedule-time">8:00 AM – 9:00 PM</span>
+                    </div>
+                    <div class="schedule-row">
+                        <span class="schedule-day">Sunday</span>
+                        <span class="schedule-time">9:00 AM – 8:00 PM</span>
+                    </div>
+                    <div class="schedule-row">
+                        <span class="schedule-day">Emergency</span>
+                        <span class="schedule-time">24×7 Open</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: TESTIMONIALS -->
+    <section class="testimonials-section">
+        <h2 class="section-title reveal">What Our Patients Say</h2>
+        <p class="section-subtitle reveal">Real stories from the families we serve</p>
+        <div class="testimonials-slider reveal">
+            <div class="testimonials-track" id="testimonialsTrack">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <span class="quote-mark">"</span>
+                        <p class="testimonial-text">Fantastic doctors and caring staff. Dr. Alka was incredibly supportive during my delivery.</p>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-author">Priya R.</p>
+                        <p class="testimonial-location">Kodungaiyur</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <span class="quote-mark">"</span>
+                        <p class="testimonial-text">Quick emergency response saved my father. The ICU team was exceptional.</p>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-author">Ramesh K.</p>
+                        <p class="testimonial-location">Moolakadai</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <span class="quote-mark">"</span>
+                        <p class="testimonial-text">Affordable treatment without compromise on quality. Highly recommend KVT.</p>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-author">Anitha M.</p>
+                        <p class="testimonial-location">Madhavaram</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <span class="quote-mark">"</span>
+                        <p class="testimonial-text">Dr. Thirumavalavan explained everything clearly. Best nephrologist in North Chennai.</p>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-author">Suresh L.</p>
+                        <p class="testimonial-location">Perambur</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <span class="quote-mark">"</span>
+                        <p class="testimonial-text">Clean, hygienic, and professional. Treated us like family during a difficult time.</p>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-author">Kavitha S.</p>
+                        <p class="testimonial-location">Tondiarpet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: WHY CHOOSE KVT -->
+    <section class="why-section" id="about">
+        <div class="why-container">
+            <div class="why-content reveal">
+                <h3>Our Commitment to Excellence</h3>
+                <p>For over 25 years, KVT Multispeciality Hospitals has been the most trusted healthcare destination in North Chennai. From routine consultations to critical emergencies, we deliver care that families depend on.</p>
+                <ul class="feature-list">
+                    <li><i data-lucide="circle-check"></i> NABH Accredited Facility</li>
+                    <li><i data-lucide="circle-check"></i> 25+ Years of Community Trust</li>
+                    <li><i data-lucide="circle-check"></i> Affordable World-Class Care</li>
+                </ul>
+            </div>
+            <div class="progress-container reveal">
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Patient Satisfaction</span>
+                        <span class="progress-value">94%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="94"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Emergency Response Rate</span>
+                        <span class="progress-value">98%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="98"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Hygiene & Cleanliness</span>
+                        <span class="progress-value">92%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="92"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Doctor Friendliness</span>
+                        <span class="progress-value">96%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="96"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Affordability Rating</span>
+                        <span class="progress-value">88%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="88"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: INSURANCE & ACCREDITATION -->
+    <section class="insurance-section">
+        <h2 class="section-title reveal">Trusted & Accredited</h2>
+        <div class="accreditation-badges reveal">
+            <div class="accredit-badge nabh">
+                <i data-lucide="award"></i> NABH Accredited
+            </div>
+            <div class="accredit-badge years">
+                <i data-lucide="calendar"></i> 25+ Years of Service
+            </div>
+            <div class="accredit-badge emergency">
+                <span class="pulse-dot"></span> 24×7 Emergency
+            </div>
+        </div>
+        <div class="insurance-marquee reveal">
+            <div class="insurance-track">
+                <span class="insurance-pill">Government Insurance</span>
+                <span class="insurance-pill">ESI</span>
+                <span class="insurance-pill">CGHS</span>
+                <span class="insurance-pill">Star Health</span>
+                <span class="insurance-pill">New India Assurance</span>
+                <span class="insurance-pill">United India</span>
+                <span class="insurance-pill">National Insurance</span>
+                <span class="insurance-pill">Bajaj Allianz</span>
+                <span class="insurance-pill">HDFC Ergo</span>
+                <span class="insurance-pill">Medi Assist</span>
+                <span class="insurance-pill">Government Insurance</span>
+                <span class="insurance-pill">ESI</span>
+                <span class="insurance-pill">CGHS</span>
+                <span class="insurance-pill">Star Health</span>
+                <span class="insurance-pill">New India Assurance</span>
+                <span class="insurance-pill">United India</span>
+                <span class="insurance-pill">National Insurance</span>
+                <span class="insurance-pill">Bajaj Allianz</span>
+                <span class="insurance-pill">HDFC Ergo</span>
+                <span class="insurance-pill">Medi Assist</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: CONTACT & APPOINTMENT -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info reveal">
+                <h3>Visit Us</h3>
+                <div class="info-item">
+                    <i data-lucide="map-pin"></i>
+                    <div>
+                        <strong>KVT Multispeciality Hospitals</strong><br>
+                        No. 123, Main Road, Moolakadai,<br>
+                        Chennai - 600 051, Tamil Nadu
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <a href="tel:+914442834516">+91 44 42834516</a><br>
+                        <a href="tel:+919876543210">+91 98765 43210</a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i data-lucide="clock"></i>
+                    <div>
+                        <table class="hours-table">
+                            <tr><td>Mon - Sat</td><td>8:00 AM - 9:00 PM</td></tr>
+                            <tr><td>Sunday</td><td>9:00 AM - 8:00 PM</td></tr>
+                            <tr><td>Emergency</td><td>24×7 Open</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.2!2d80.2540!3d13.1512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52648f16a84c8b%3A0x4f73b30c78d02012!2sMoolakadai%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1715000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="appointment-form reveal">
+                <h3>Book an Appointment</h3>
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email (optional)</label>
+                            <input type="email" id="email" name="email" placeholder="Enter email address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Select Department *</label>
+                        <select id="department" name="department" required>
+                            <option value="">Choose a department</option>
+                            <option value="General Medicine">General Medicine</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Orthopaedics">Orthopaedics</option>
+                            <option value="Nephrology">Nephrology</option>
+                            <option value="Urology">Urology</option>
+                            <option value="ENT">ENT</option>
+                            <option value="Gynecology">Gynecology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="General Surgery">General Surgery</option>
+                            <option value="Diabetology">Diabetology</option>
+                            <option value="Gastroenterology">Gastroenterology</option>
+                            <option value="Emergency Medicine">Emergency Medicine</option>
+                            <option value="ICU & Critical Care">ICU & Critical Care</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Preferred Time *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Select time</option>
+                                <option value="Morning">Morning (8AM - 12PM)</option>
+                                <option value="Afternoon">Afternoon (12PM - 5PM)</option>
+                                <option value="Evening">Evening (5PM - 9PM)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (optional)</label>
+                        <textarea id="message" name="message" placeholder="Any specific concerns or symptoms..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirm Appointment →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">
+                    <div class="logo-icon">✚</div>
+                    <div class="logo-text">
+                        <span class="logo-name" style="color: white;">KVT</span>
+                        <span class="logo-subtitle">Multispeciality Hospitals</span>
+                    </div>
+                </div>
+                <p class="footer-tagline">Where Care Meets Trust</p>
+                <p class="footer-description">Serving North Chennai communities with compassionate, affordable healthcare since 1999.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#departments">Departments</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Book Appointment</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Contact</h4>
+                <div class="footer-contact">
+                    <p><i data-lucide="map-pin"></i> No. 123, Main Road, Moolakadai, Chennai - 600 051</p>
+                    <p><i data-lucide="phone"></i> <a href="tel:+914442834516">+91 44 42834516</a></p>
+                    <p><i data-lucide="clock"></i> Mon-Sat: 8AM-9PM, Sun: 9AM-8PM</p>
+                    <div class="emergency-badge">
+                        <span class="pulse-dot"></span> Emergency: Always Open
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="currentYear"></span> KVT Multispeciality Hospitals. All rights reserved.</p>
+            <p>Designed for North Chennai's Healthcare Community</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING BUTTONS -->
+    <div class="floating-buttons">
+        <a href="tel:+914442834516" class="floating-btn call">
+            <i data-lucide="phone"></i> Emergency Call
+        </a>
+        <a href="#contact" class="floating-btn appointment">
+            <i data-lucide="calendar"></i> Book Appointment
+        </a>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle"></i>
+        <span>Appointment confirmed! We'll contact you shortly.</span>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Initialize Lucide Icons — wait for full page load so CDN script is ready
+        window.addEventListener('load', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+
+        // ============================================
+        // TYPING ANIMATION
+        // ============================================
+        const typingWords = [
+            'Trusted Hospital',
+            'Advanced ICU Care',
+            'Expert Surgeons',
+            '24×7 Emergency',
+            'Family Healthcare'
+        ];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function type() {
+            const currentWord = typingWords[wordIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % typingWords.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
+        // ============================================
+        // NAVBAR SCROLL EFFECT
+        // ============================================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ============================================
+        // MOBILE HAMBURGER MENU
+        // ============================================
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ============================================
+        // STATS COUNT-UP ANIMATION
+        // ============================================
+        const statValues = document.querySelectorAll('.stat-value');
+        let statsAnimated = false;
+
+        function animateStats() {
+            statValues.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const updateCount = () => {
+                    current += increment;
+                    if (current < target) {
+                        stat.textContent = Math.ceil(current).toLocaleString();
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        stat.textContent = target.toLocaleString() + '+';
+                    }
+                };
+
+                updateCount();
+            });
+        }
+
+        const statsSection = document.querySelector('.stats-section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+
+        // ============================================
+        // SCROLL REVEAL ANIMATION
+        // ============================================
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ============================================
+        // TABS FUNCTIONALITY
+        // ============================================
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+            
+            // Keyboard arrow navigation
+            btn.addEventListener('keydown', (e) => {
+                const allBtns = [...tabBtns];
+                const currentIndex = allBtns.indexOf(btn);
+                let newIndex = currentIndex;
+                if (e.key === 'ArrowRight') newIndex = (currentIndex + 1) % allBtns.length;
+                if (e.key === 'ArrowLeft') newIndex = (currentIndex - 1 + allBtns.length) % allBtns.length;
+                if (newIndex !== currentIndex) {
+                    allBtns[newIndex].focus();
+                    allBtns[newIndex].click();
+                }
+            });
+        });
+
+        // ============================================
+        // TESTIMONIALS SLIDER
+        // ============================================
+        const testimonialsTrack = document.getElementById('testimonialsTrack');
+        const sliderDots = document.getElementById('sliderDots');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Create dots
+        testimonialCards.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            sliderDots.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function goToSlide(index) {
+            currentSlide = index;
+            testimonialsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % testimonialCards.length;
+            goToSlide(currentSlide);
+        }
+
+        // Auto-advance
+        slideInterval = setInterval(nextSlide, 4000);
+
+        // Pause on hover
+        testimonialsTrack.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        testimonialsTrack.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 4000);
+        });
+
+        // ============================================
+        // PROGRESS BARS ANIMATION
+        // ============================================
+        const progressFills = document.querySelectorAll('.progress-fill');
+        let progressAnimated = false;
+
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !progressAnimated) {
+                    progressAnimated = true;
+                    progressFills.forEach(fill => {
+                        const width = fill.getAttribute('data-width');
+                        setTimeout(() => {
+                            fill.style.width = width + '%';
+                        }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const progressContainer = document.querySelector('.progress-container');
+        if (progressContainer) {
+            progressObserver.observe(progressContainer);
+        }
+
+        // ============================================
+        // FORM SUBMISSION
+        // ============================================
+        const appointmentForm = document.getElementById('appointmentForm');
+        const toast = document.getElementById('toast');
+
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Reset form
+            appointmentForm.reset();
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        });
+
+        // ============================================
+        // DYNAMIC YEAR
+        // ============================================
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ============================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ============================================
+        // FLIP CARDS - TOUCH SUPPORT FOR MOBILE
+        // ============================================
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Only apply click-toggle on touch devices
+                if (window.matchMedia('(hover: none)').matches) {
+                    card.classList.toggle('flipped');
+                }
+            });
+        });
+
+        // ============================================
+        // FLOATING BUTTONS ANIMATION ON LOAD
+        // ============================================
+        window.addEventListener('load', () => {
+            const floatingBtns = document.querySelectorAll('.floating-btn');
+            floatingBtns.forEach((btn, index) => {
+                setTimeout(() => {
+                    btn.style.opacity = '1';
+                    btn.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
