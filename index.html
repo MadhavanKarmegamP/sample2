@@ -348,6 +348,22 @@
             width: 100%;
         }
         
+        /* Book Appointment CTA in navbar — suppress underline effect */
+        .nav-links .btn {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            color: var(--white) !important;
+        }
+        
+        .nav-links .btn::after {
+            display: none;
+        }
+        
+        .nav-links .btn:hover {
+            color: var(--white) !important;
+        }
+        
         .hamburger {
             display: none;
             flex-direction: column;
